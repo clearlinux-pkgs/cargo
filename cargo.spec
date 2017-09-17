@@ -2,7 +2,7 @@
 
 Name:           cargo
 Version:        0.21.0
-Release:        15
+Release:        16
 Summary:        Rust package manager and build tool
 License:        Apache-2.0 MIT
 URL:            https://crates.io/
