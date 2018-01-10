@@ -1,13 +1,13 @@
 %global rust_triple x86_64-unknown-linux-gnu
 
 Name:           cargo
-Version:        0.21.0
-Release:        17
+Version:        0.23.0
+Release:        19
 Summary:        Rust package manager and build tool
 License:        Apache-2.0 MIT
 URL:            https://crates.io/
-Source0:        https://github.com/rust-lang/cargo/archive/0.21.0/cargo-0.21.0.tar.gz
-Source1:        http://localhost/vendor-0.21.0.tar.xz
+Source0:        https://github.com/rust-lang/cargo/archive/0.23.0/cargo-0.23.0.tar.gz
+Source1:        http://localhost/cgit/projects/cargo-vendor/snapshot/cargo-vendor-0.23.0.tar.gz
 
 BuildRequires:  cmake
 BuildRequires:  curl
@@ -31,7 +31,7 @@ Language package and dependency manager for Rust.
 %prep
 
 # vendored crates
-%setup -q -n vendor-0.21.0 -T -b 1
+%setup -q -n cargo-vendor-0.23.0 -T -b 1
 
 # cargo sources
 %setup -q
@@ -48,7 +48,7 @@ registry = 'https://github.com/rust-lang/crates.io-index'
 replace-with = 'vendored-sources'
 
 [source.vendored-sources]
-directory = '$PWD/../vendor-0.21.0'
+directory = '$PWD/../cargo-vendor-0.23.0'
 EOF
 
 %build
