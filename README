@@ -1,0 +1,11 @@
+To update:
+- Generate new cargo-vendor for the cargo version being built
+ - install https://github.com/alexcrichton/cargo-vendor/
+ - extract cargo tar and run cargo vendor
+ - clone the cgit/projects/cargo-vendor/ tree
+ - cp -a the .git from cargo-vendor into the newly created vendor folder
+ - commit, tag and push (push tag too) the changes
+- update spec and Makefile with new versions and download the cargo-vendor archive from cgit
+- make build to verify everything is building fix as needed
+- make generateupstream
+- make koji
