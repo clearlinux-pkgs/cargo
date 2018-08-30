@@ -4,8 +4,9 @@ To update:
  - extract cargo tar and run cargo vendor
  - clone the cgit/projects/cargo-vendor/ tree
  - cp -a the .git from cargo-vendor into the newly created vendor folder
- - commit, tag and push (push tag too) the changes
+ - commit, tag and push (push tag too) the changes for cargo-vendor
 - update spec and Makefile with new versions and download the cargo-vendor archive from cgit
 - make build to verify everything is building fix as needed
 - make generateupstream
+- commit changes for cargo
 - make koji
