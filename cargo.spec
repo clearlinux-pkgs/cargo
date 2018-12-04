@@ -1,13 +1,13 @@
 %global rust_triple x86_64-unknown-linux-gnu
 
 Name:           cargo
-Version:        0.29.0
-Release:        27
+Version:        0.31.1
+Release:        28
 Summary:        Rust package manager and build tool
 License:        Apache-2.0 MIT
 URL:            https://crates.io/
-Source0:        https://github.com/rust-lang/cargo/archive/0.29.0/cargo-0.29.0.tar.gz
-Source1:        http://localhost/cgit/projects/cargo-vendor/snapshot/cargo-vendor-0.29.0.tar.gz
+Source0:        https://github.com/rust-lang/cargo/archive/0.31.1/cargo-0.31.1.tar.gz
+Source1:        http://localhost/cgit/projects/cargo-vendor/snapshot/cargo-vendor-0.31.1-2.tar.gz
 
 BuildRequires:  cmake
 BuildRequires:  curl
@@ -31,7 +31,7 @@ Language package and dependency manager for Rust.
 %prep
 
 # vendored crates
-%setup -q -n cargo-vendor-0.29.0 -T -b 1
+%setup -q -n cargo-vendor-0.31.1-2 -T -b 1
 
 # cargo sources
 %setup -q
@@ -39,7 +39,7 @@ Language package and dependency manager for Rust.
 # Create vendored dependencies for offline build see
 # https://github.com/alexcrichton/cargo-vendor/
 # Generated via checking out cargo version from git and running
-# ver="" cargo vendor && mv vendor cargo-vendor-$ver && tar cf cargo-vendor-$ver.tar cargo-vendor-$ver && gzip cargo-vendor-$ver.tar
+# ver="" && cargo vendor && mv vendor cargo-vendor-$ver && tar cf cargo-vendor-$ver.tar cargo-vendor-$ver && gzip cargo-vendor-$ver.tar
 # TODO: package these dependencies for the distribution
 mkdir -p .cargo
 cat >.cargo/config <<EOF
@@ -48,7 +48,7 @@ registry = 'https://github.com/rust-lang/crates.io-index'
 replace-with = 'vendored-sources'
 
 [source.vendored-sources]
-directory = '$PWD/../cargo-vendor-0.29.0'
+directory = '$PWD/../cargo-vendor-0.31.1-2'
 EOF
 
 %build
