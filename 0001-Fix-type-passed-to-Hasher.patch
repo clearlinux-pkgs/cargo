@@ -1,0 +1,25 @@
+From c08b08f92d0fe6e7cfa20e17555426c765e53682 Mon Sep 17 00:00:00 2001
+From: William Douglas <william.douglas@intel.com>
+Date: Thu, 20 Dec 2018 13:19:52 -0800
+Subject: [PATCH] Fix type passed to Hasher
+
+---
+ src/cargo/util/sha256.rs | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/cargo/util/sha256.rs b/src/cargo/util/sha256.rs
+index 575d22c..b4f3c9c 100644
+--- a/src/cargo/util/sha256.rs
++++ b/src/cargo/util/sha256.rs
+@@ -6,7 +6,7 @@ pub struct Sha256(Hasher);
+ 
+ impl Sha256 {
+     pub fn new() -> Sha256 {
+-        let hasher = Hasher::new(Algorithm::SHA256);
++        let hasher = Hasher::new(&Algorithm::SHA256);
+         Sha256(hasher)
+     }
+ 
+-- 
+2.19.2
+
